@@ -77,11 +77,14 @@
             openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             exportFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.tbZoomLevel = new System.Windows.Forms.TrackBar();
-            this.lblZoomLevel = new System.Windows.Forms.Label();
+            tbZoomLevel = new System.Windows.Forms.TrackBar();
+            lblZoomLevel = new System.Windows.Forms.Label();
+            modeSpr4MenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            modeSpr16MenuItem = new System.Windows.Forms.ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             contextMenu.SuspendLayout();
             spriteContextMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)tbZoomLevel).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -104,7 +107,7 @@
             // 
             // newToolStripMenuItem
             // 
-            newToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { mode0ToolStripMenuItem, mode1ToolStripMenuItem, mode2ToolStripMenuItem, mode4ToolStripMenuItem, mode5ToolStripMenuItem });
+            newToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { mode0ToolStripMenuItem, mode1ToolStripMenuItem, mode2ToolStripMenuItem, mode4ToolStripMenuItem, mode5ToolStripMenuItem, modeSpr4MenuItem, modeSpr16MenuItem });
             newToolStripMenuItem.Name = "newToolStripMenuItem";
             newToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             newToolStripMenuItem.Text = "&New sprite sheet";
@@ -112,35 +115,35 @@
             // mode0ToolStripMenuItem
             // 
             mode0ToolStripMenuItem.Name = "mode0ToolStripMenuItem";
-            mode0ToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            mode0ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             mode0ToolStripMenuItem.Text = "Mode 0";
             mode0ToolStripMenuItem.Click += mode0ToolStripMenuItem_Click;
             // 
             // mode1ToolStripMenuItem
             // 
             mode1ToolStripMenuItem.Name = "mode1ToolStripMenuItem";
-            mode1ToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            mode1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             mode1ToolStripMenuItem.Text = "Mode 1";
             mode1ToolStripMenuItem.Click += mode1ToolStripMenuItem_Click;
             // 
             // mode2ToolStripMenuItem
             // 
             mode2ToolStripMenuItem.Name = "mode2ToolStripMenuItem";
-            mode2ToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            mode2ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             mode2ToolStripMenuItem.Text = "Mode 2";
             mode2ToolStripMenuItem.Click += mode2ToolStripMenuItem_Click;
             // 
             // mode4ToolStripMenuItem
             // 
             mode4ToolStripMenuItem.Name = "mode4ToolStripMenuItem";
-            mode4ToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            mode4ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             mode4ToolStripMenuItem.Text = "Mode 4";
             mode4ToolStripMenuItem.Click += mode4ToolStripMenuItem_Click;
             // 
             // mode5ToolStripMenuItem
             // 
             mode5ToolStripMenuItem.Name = "mode5ToolStripMenuItem";
-            mode5ToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            mode5ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             mode5ToolStripMenuItem.Text = "Mode 5";
             mode5ToolStripMenuItem.Click += mode5ToolStripMenuItem_Click;
             // 
@@ -195,13 +198,13 @@
             // RecentFilesToolStripMenuItem
             // 
             RecentFilesToolStripMenuItem.Name = "RecentFilesToolStripMenuItem";
-            RecentFilesToolStripMenuItem.Size = new System.Drawing.Size(398, 44);
+            RecentFilesToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             RecentFilesToolStripMenuItem.Text = "Recent Files";
             // 
             // toolStripMenuItem3
             // 
             toolStripMenuItem3.Name = "toolStripMenuItem3";
-            toolStripMenuItem3.Size = new System.Drawing.Size(395, 6);
+            toolStripMenuItem3.Size = new System.Drawing.Size(197, 6);
             // 
             // exitToolStripMenuItem
             // 
@@ -327,11 +330,9 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.AllowDrop = true;
-            flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(240, 240, 240);
             flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             flowLayoutPanel1.ContextMenuStrip = contextMenu;
             flowLayoutPanel1.Location = new System.Drawing.Point(0, 24);
@@ -339,8 +340,8 @@
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new System.Drawing.Size(405, 413);
             flowLayoutPanel1.TabIndex = 1;
-            flowLayoutPanel1.DragEnter += new System.Windows.Forms.DragEventHandler(flowLayoutPanel1_DragEnter);
-            flowLayoutPanel1.DragOver += new System.Windows.Forms.DragEventHandler(flowLayoutPanel1_DragOver);
+            flowLayoutPanel1.DragEnter += flowLayoutPanel1_DragEnter;
+            flowLayoutPanel1.DragOver += flowLayoutPanel1_DragOver;
             // 
             // contextMenu
             // 
@@ -361,7 +362,7 @@
             spriteContextMenu.ImageScalingSize = new System.Drawing.Size(32, 32);
             spriteContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { addCopyOfThisSpriteToolStripMenuItem, renameToolStripMenuItem, deleteToolStripMenuItem, toolStripMenuItem2, addToAnimationPreviewToolStripMenuItem, addAllSpritesToAnimationPreviewWindowToolStripMenuItem });
             spriteContextMenu.Name = "spriteContextMenu";
-            spriteContextMenu.Size = new System.Drawing.Size(266, 142);
+            spriteContextMenu.Size = new System.Drawing.Size(266, 120);
             // 
             // addCopyOfThisSpriteToolStripMenuItem
             // 
@@ -423,49 +424,63 @@
             // 
             // tbZoomLevel
             // 
-            this.tbZoomLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tbZoomLevel.Location = new System.Drawing.Point(0, 443);
-            this.tbZoomLevel.Minimum = 1;
-            this.tbZoomLevel.Name = "tbZoomLevel";
-            this.tbZoomLevel.Size = new System.Drawing.Size(211, 45);
-            this.tbZoomLevel.TabIndex = 2;
-            this.tbZoomLevel.Value = 1;
-            this.tbZoomLevel.ValueChanged += new System.EventHandler(this.tbZoomLevel_ValueChanged);
+            tbZoomLevel.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            tbZoomLevel.Location = new System.Drawing.Point(0, 443);
+            tbZoomLevel.Minimum = 1;
+            tbZoomLevel.Name = "tbZoomLevel";
+            tbZoomLevel.Size = new System.Drawing.Size(211, 45);
+            tbZoomLevel.TabIndex = 2;
+            tbZoomLevel.Value = 1;
+            tbZoomLevel.ValueChanged += tbZoomLevel_ValueChanged;
             // 
             // lblZoomLevel
             // 
-            this.lblZoomLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblZoomLevel.AutoSize = true;
-            this.lblZoomLevel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblZoomLevel.Location = new System.Drawing.Point(217, 443);
-            this.lblZoomLevel.Name = "lblZoomLevel";
-            this.lblZoomLevel.Size = new System.Drawing.Size(68, 30);
-            this.lblZoomLevel.TabIndex = 3;
-            this.lblZoomLevel.Text = "label1";
+            lblZoomLevel.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
+            lblZoomLevel.AutoSize = true;
+            lblZoomLevel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblZoomLevel.Location = new System.Drawing.Point(217, 443);
+            lblZoomLevel.Name = "lblZoomLevel";
+            lblZoomLevel.Size = new System.Drawing.Size(68, 30);
+            lblZoomLevel.TabIndex = 3;
+            lblZoomLevel.Text = "label1";
+            // 
+            // modeSpr4MenuItem
+            // 
+            modeSpr4MenuItem.Name = "modeSpr4MenuItem";
+            modeSpr4MenuItem.Size = new System.Drawing.Size(180, 22);
+            modeSpr4MenuItem.Text = "4 colour HW Sprite";
+            modeSpr4MenuItem.Click += modeSpr4MenuItem_Click;
+            // 
+            // modeSpr16MenuItem
+            // 
+            modeSpr16MenuItem.Name = "modeSpr16MenuItem";
+            modeSpr16MenuItem.Size = new System.Drawing.Size(180, 22);
+            modeSpr16MenuItem.Text = "16 colour HW Sprite";
+            modeSpr16MenuItem.Click += modeSpr16MenuItem_Click;
             // 
             // SpriteSheetForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(405, 479);
-            this.Controls.Add(this.lblZoomLevel);
-            this.Controls.Add(this.tbZoomLevel);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.menuStrip1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "SpriteSheetForm";
-            this.Text = "Form1";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SpriteSheetForm_FormClosing);
-            this.Load += new System.EventHandler(this.SpriteSheetForm_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.contextMenu.ResumeLayout(false);
-            this.spriteContextMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tbZoomLevel)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(405, 479);
+            Controls.Add(lblZoomLevel);
+            Controls.Add(tbZoomLevel);
+            Controls.Add(flowLayoutPanel1);
+            Controls.Add(menuStrip1);
+            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
+            MainMenuStrip = menuStrip1;
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Name = "SpriteSheetForm";
+            Text = "Form1";
+            FormClosing += SpriteSheetForm_FormClosing;
+            Load += SpriteSheetForm_Load;
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            contextMenu.ResumeLayout(false);
+            spriteContextMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)tbZoomLevel).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -519,6 +534,8 @@
         private System.Windows.Forms.ToolStripMenuItem RecentFilesToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem addAllSpritesToAnimationPreviewWindowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modeSpr4MenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modeSpr16MenuItem;
     }
 }
 

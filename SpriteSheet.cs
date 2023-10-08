@@ -22,7 +22,7 @@ namespace BeebSpriter
             White
         };
 
-        private int mode;
+        private ScreenMode mode;
         private int xScale;
         private int yScale;
         private int bitsPerPixel;
@@ -54,8 +54,10 @@ namespace BeebSpriter
 
         #endregion
 
+        public enum ScreenMode { Mode0, Mode1, Mode2, Mode4,Mode5, BlitSprite4, BlitSprite16 }
+
         [XmlAttribute]
-        public int Mode
+        public ScreenMode Mode
         {
             get
             {
@@ -69,29 +71,39 @@ namespace BeebSpriter
 
                 switch (this.mode)
                 {
-                    case 0:
+                    case ScreenMode.Mode0:
                         this.xScale = 1;
                         this.bitsPerPixel = 1;
                         break;
 
-                    case 1:
+                    case ScreenMode.Mode1:
                         this.xScale = 2;
                         this.bitsPerPixel = 2;
                         break;
 
-                    case 2:
+                    case ScreenMode.Mode2:
                         this.xScale = 4;
                         this.bitsPerPixel = 4;
                         break;
 
-                    case 4:
+                    case ScreenMode.Mode4:
                         this.xScale = 2;
                         this.bitsPerPixel = 1;
                         break;
 
-                    case 5:
+                    case ScreenMode.Mode5:
                         this.xScale = 4;
                         this.bitsPerPixel = 2;
+                        break;
+
+                    case ScreenMode.BlitSprite4:
+                        this.xScale = 2;
+                        this.bitsPerPixel = 2;
+                        break;
+
+                    case ScreenMode.BlitSprite16:
+                        this.xScale = 2;
+                        this.bitsPerPixel = 4;
                         break;
 
                     default:
@@ -222,7 +234,7 @@ namespace BeebSpriter
         {
         }
 
-        public SpriteSheet(int mode)
+        public SpriteSheet(ScreenMode mode)
         {
             this.Mode = mode;
             this.DefaultPalette = new BeebPalette.Colour[this.NumColours];

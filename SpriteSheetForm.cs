@@ -182,7 +182,7 @@ namespace BeebSpriter
             RecentFiles = new RecentFilesList(RecentFilesToolStripMenuItem, OpenSprites);
             lblZoomLevel.Text = "x " + tbZoomLevel.Value.ToString();
 
-            
+
             MyJSON myJSON = new();
             myJSON.LoadJson(RecentFiles);
 
@@ -284,7 +284,7 @@ namespace BeebSpriter
         /// </summary>
         private void mode0ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NewSpriteSheet(0);
+            NewSpriteSheet(SpriteSheet.ScreenMode.Mode0);
         }
 
 
@@ -293,7 +293,7 @@ namespace BeebSpriter
         /// </summary>
         private void mode1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NewSpriteSheet(1);
+            NewSpriteSheet(SpriteSheet.ScreenMode.Mode1);
         }
 
 
@@ -302,7 +302,7 @@ namespace BeebSpriter
         /// </summary>
         private void mode2ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NewSpriteSheet(2);
+            NewSpriteSheet(SpriteSheet.ScreenMode.Mode2);
         }
 
 
@@ -311,7 +311,7 @@ namespace BeebSpriter
         /// </summary>
         private void mode4ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NewSpriteSheet(4);
+            NewSpriteSheet(SpriteSheet.ScreenMode.Mode4);
         }
 
 
@@ -320,15 +320,26 @@ namespace BeebSpriter
         /// </summary>
         private void mode5ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NewSpriteSheet(5);
+            NewSpriteSheet(SpriteSheet.ScreenMode.Mode5);
         }
 
+        private void modeSpr16MenuItem_Click(object sender, EventArgs e)
+        {
+            NewSpriteSheet(SpriteSheet.ScreenMode.BlitSprite16);
+
+        }
+
+        private void modeSpr4MenuItem_Click(object sender, EventArgs e)
+        {
+            NewSpriteSheet(SpriteSheet.ScreenMode.BlitSprite4);
+
+        }
 
         /// <summary>
         ///  Common entry point for creating a new sprite sheet
         /// </summary>
         /// <param name="mode">Beeb screen mode to create sprite sheet for</param>
-        private void NewSpriteSheet(int mode)
+        private void NewSpriteSheet(SpriteSheet.ScreenMode mode)
         {
             // First check whether the user wants to lose unsaved work.
             if (IsUnsaved)
@@ -1258,5 +1269,6 @@ namespace BeebSpriter
 
             lblZoomLevel.Text = "x " + tbZoomLevel.Value.ToString();
         }
+
     }
 }
