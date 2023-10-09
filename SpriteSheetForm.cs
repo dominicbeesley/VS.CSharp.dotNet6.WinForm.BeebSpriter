@@ -284,7 +284,7 @@ namespace BeebSpriter
         /// </summary>
         private void mode0ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NewSpriteSheet(SpriteSheet.ScreenMode.Mode0);
+            NewSpriteSheet(ScreenMode.Mode0);
         }
 
 
@@ -293,7 +293,7 @@ namespace BeebSpriter
         /// </summary>
         private void mode1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NewSpriteSheet(SpriteSheet.ScreenMode.Mode1);
+            NewSpriteSheet(ScreenMode.Mode1);
         }
 
 
@@ -302,7 +302,7 @@ namespace BeebSpriter
         /// </summary>
         private void mode2ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NewSpriteSheet(SpriteSheet.ScreenMode.Mode2);
+            NewSpriteSheet(ScreenMode.Mode2);
         }
 
 
@@ -311,7 +311,7 @@ namespace BeebSpriter
         /// </summary>
         private void mode4ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NewSpriteSheet(SpriteSheet.ScreenMode.Mode4);
+            NewSpriteSheet(ScreenMode.Mode4);
         }
 
 
@@ -320,18 +320,18 @@ namespace BeebSpriter
         /// </summary>
         private void mode5ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NewSpriteSheet(SpriteSheet.ScreenMode.Mode5);
+            NewSpriteSheet(ScreenMode.Mode5);
         }
 
         private void modeSpr16MenuItem_Click(object sender, EventArgs e)
         {
-            NewSpriteSheet(SpriteSheet.ScreenMode.BlitSprite16);
+            NewSpriteSheet(ScreenMode.BlitSprite16);
 
         }
 
         private void modeSpr4MenuItem_Click(object sender, EventArgs e)
         {
-            NewSpriteSheet(SpriteSheet.ScreenMode.BlitSprite4);
+            NewSpriteSheet(ScreenMode.BlitSprite4);
 
         }
 
@@ -339,7 +339,7 @@ namespace BeebSpriter
         ///  Common entry point for creating a new sprite sheet
         /// </summary>
         /// <param name="mode">Beeb screen mode to create sprite sheet for</param>
-        private void NewSpriteSheet(SpriteSheet.ScreenMode mode)
+        private void NewSpriteSheet(ScreenMode mode)
         {
             // First check whether the user wants to lose unsaved work.
             if (IsUnsaved)
@@ -446,7 +446,7 @@ namespace BeebSpriter
             catch (Exception e)
             {
                 Cursor.Current = Cursors.Default;
-                MessageBox.Show(e.Message, "Error");
+                MessageBox.Show(e.ToString(), "Error");
             }
 
             Cursor.Current = Cursors.Default;

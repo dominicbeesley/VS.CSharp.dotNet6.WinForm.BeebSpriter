@@ -6,13 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using BeebSpriter.Controls;
 
 namespace BeebSpriter
 {
     public partial class DefaultPalette : Form
     {
-        Panel[] colourPanels;
-        BeebPalette.Colour[] defaultPalette;
+        PalColourC[] colourPanels;
+        PalColourBase[] defaultPalette;
 
 
         public DefaultPalette()
@@ -20,7 +21,7 @@ namespace BeebSpriter
             InitializeComponent();
 
             // Make an array to look up colour panels by index
-            colourPanels = new Panel[16]
+            colourPanels = new PalColourC[16]
             {
                 button_colour0,
                 button_colour1,
@@ -63,11 +64,11 @@ namespace BeebSpriter
                     break;
             }
 
-            defaultPalette = (BeebPalette.Colour[])spriteSheet.DefaultPalette.Clone();
+            defaultPalette = (PalColourBase[])spriteSheet.DefaultPalette.Clone();
 
             for (int i = 0; i < spriteSheet.NumColours; i++)
             {
-                colourPanels[i].BackColor = BeebPalette.GetWindowsColour(defaultPalette[i]);
+                colourPanels[i].PalColour = defaultPalette[i];
                 colourPanels[i].MouseClick += new MouseEventHandler(DefaultPalette_MouseClick);
             }
 
@@ -77,24 +78,25 @@ namespace BeebSpriter
         void DefaultPalette_MouseClick(object sender, MouseEventArgs e)
         {
             SpriteSheet spriteSheet = SpriteSheetForm.Instance.SpriteSheet;
-            Panel panel = sender as Panel;
-            int index = panel.TabIndex;
+            PalColourC panel = sender as PalColourC;
+            if (panel != null)
+            {
+                int index = panel.TabIndex;
 
-            if (e.Button == MouseButtons.Left)
-            {
-                defaultPalette[index] = BeebPalette.GetNextColour(defaultPalette[index]);
-                panel.BackColor = BeebPalette.GetWindowsColour(defaultPalette[index]);
-            }
-            else if (e.Button == MouseButtons.Right)
-            {
-                defaultPalette[index] = BeebPalette.GetPreviousColour(defaultPalette[index]);
-                panel.BackColor = BeebPalette.GetWindowsColour(defaultPalette[index]);
+                using (var f = new PALPicker())
+                {
+                    f.PalColour = defaultPalette[index];
+                    if (f.ShowDialog() == DialogResult.OK)
+                    {
+                        defaultPalette[index] = f.PalColour;
+                    }
+                }
             }
         }
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            SpriteSheetForm.Instance.SpriteSheet.DefaultPalette = (BeebPalette.Colour[])defaultPalette.Clone();
+            SpriteSheetForm.Instance.SpriteSheet.DefaultPalette = (PalColourBase[])defaultPalette.Clone();
         }
 
         private void DefaultPalette_Load(object sender, EventArgs e)

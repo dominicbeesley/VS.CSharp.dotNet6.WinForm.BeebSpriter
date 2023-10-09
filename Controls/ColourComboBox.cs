@@ -45,8 +45,8 @@ namespace BeebSpriter.Controls
 
             for (int i = 0; i < sprite.Palette.Length; i++)
             {
-                Color spriteColour = BeebPalette.GetWindowsColour(sprite.Palette[i]);
-                Items.Add(new ColourInfo(System.Enum.GetName(sprite.Palette[i]), spriteColour));
+                Color spriteColour = sprite.Palette[i].WindowsColour;
+                Items.Add(new ColourInfo(sprite.Palette[i].ToString(), spriteColour));
             }
             SelectedIndex = 0;
         }

@@ -28,7 +28,7 @@ namespace BeebSpriter
         private int bitsPerPixel;
         private List<Sprite> spriteList = new List<Sprite>();
         private BackColour backgroundColour = BackColour.Transparent;
-        private BeebPalette.Colour[] defaultPalette;
+        private PalColourBase[] defaultPalette;
         private bool defaultShowGridLines = true;
         private int horizontalBlockDividers = 0;
         private int verticalBlockDividers = 0;
@@ -54,7 +54,6 @@ namespace BeebSpriter
 
         #endregion
 
-        public enum ScreenMode { Mode0, Mode1, Mode2, Mode4,Mode5, BlitSprite4, BlitSprite16 }
 
         [XmlAttribute]
         public ScreenMode Mode
@@ -143,7 +142,11 @@ namespace BeebSpriter
             set { this.backgroundColour = value; }
         }
 
-        public BeebPalette.Colour[] DefaultPalette
+        [XmlArrayItem(),
+         XmlArrayItem(typeof(PalColourBBC), ElementName = "Colour"),
+         XmlArrayItem(typeof(PALColourNULA), ElementName = "ColourNULA"),
+        ]
+        public PalColourBase[] DefaultPalette
         {
             get { return this.defaultPalette; }
             set { this.defaultPalette = value; }
@@ -237,39 +240,39 @@ namespace BeebSpriter
         public SpriteSheet(ScreenMode mode)
         {
             this.Mode = mode;
-            this.DefaultPalette = new BeebPalette.Colour[this.NumColours];
+            this.DefaultPalette = new PalColourBase[this.NumColours];
 
             switch (this.NumColours)
             {
                 case 2:
-                    this.DefaultPalette[0] = BeebPalette.Colour.Black;
-                    this.DefaultPalette[1] = BeebPalette.Colour.White;
+                    this.DefaultPalette[0] = new PalColourBBC { Colour = PalColourBBC.BBCColour.Black };
+                    this.DefaultPalette[1] = new PalColourBBC { Colour = PalColourBBC.BBCColour.White };
                     break;
 
                 case 4:
-                    this.DefaultPalette[0] = BeebPalette.Colour.Black;
-                    this.DefaultPalette[1] = BeebPalette.Colour.Red;
-                    this.DefaultPalette[2] = BeebPalette.Colour.Yellow;
-                    this.DefaultPalette[3] = BeebPalette.Colour.White;
+                    this.DefaultPalette[0] = new PalColourBBC { Colour = PalColourBBC.BBCColour.Black };
+                    this.DefaultPalette[1] = new PalColourBBC { Colour = PalColourBBC.BBCColour.Red };
+                    this.DefaultPalette[2] = new PalColourBBC { Colour = PalColourBBC.BBCColour.Yellow };
+                    this.DefaultPalette[3] = new PalColourBBC { Colour = PalColourBBC.BBCColour.White };
                     break;
 
                 case 16:
-                    this.DefaultPalette[0] = BeebPalette.Colour.Black;
-                    this.DefaultPalette[1] = BeebPalette.Colour.Red;
-                    this.DefaultPalette[2] = BeebPalette.Colour.Green;
-                    this.DefaultPalette[3] = BeebPalette.Colour.Yellow;
-                    this.DefaultPalette[4] = BeebPalette.Colour.Blue;
-                    this.DefaultPalette[5] = BeebPalette.Colour.Magenta;
-                    this.DefaultPalette[6] = BeebPalette.Colour.Cyan;
-                    this.DefaultPalette[7] = BeebPalette.Colour.White;
-                    this.DefaultPalette[8] = BeebPalette.Colour.Black;
-                    this.DefaultPalette[9] = BeebPalette.Colour.Red;
-                    this.DefaultPalette[10] = BeebPalette.Colour.Green;
-                    this.DefaultPalette[11] = BeebPalette.Colour.Yellow;
-                    this.DefaultPalette[12] = BeebPalette.Colour.Blue;
-                    this.DefaultPalette[13] = BeebPalette.Colour.Magenta;
-                    this.DefaultPalette[14] = BeebPalette.Colour.Cyan;
-                    this.DefaultPalette[15] = BeebPalette.Colour.White;
+                    this.DefaultPalette[0] = new PalColourBBC { Colour = PalColourBBC.BBCColour.Black };
+                    this.DefaultPalette[1] = new PalColourBBC { Colour = PalColourBBC.BBCColour.Red };
+                    this.DefaultPalette[2] = new PalColourBBC { Colour = PalColourBBC.BBCColour.Green };
+                    this.DefaultPalette[3] = new PalColourBBC { Colour = PalColourBBC.BBCColour.Yellow };
+                    this.DefaultPalette[4] = new PalColourBBC { Colour = PalColourBBC.BBCColour.Blue };
+                    this.DefaultPalette[5] = new PalColourBBC { Colour = PalColourBBC.BBCColour.Magenta };
+                    this.DefaultPalette[6] = new PalColourBBC { Colour = PalColourBBC.BBCColour.Cyan };
+                    this.DefaultPalette[7] = new PalColourBBC { Colour = PalColourBBC.BBCColour.White };
+                    this.DefaultPalette[8] = new PalColourBBC { Colour = PalColourBBC.BBCColour.BlackWhite };
+                    this.DefaultPalette[9] = new PalColourBBC { Colour = PalColourBBC.BBCColour.RedCyan };
+                    this.DefaultPalette[10] = new PalColourBBC { Colour = PalColourBBC.BBCColour.GreenMagenta };
+                    this.DefaultPalette[11] = new PalColourBBC { Colour = PalColourBBC.BBCColour.YellowBlue };
+                    this.DefaultPalette[12] = new PalColourBBC { Colour = PalColourBBC.BBCColour.BlueYellow };
+                    this.DefaultPalette[13] = new PalColourBBC { Colour = PalColourBBC.BBCColour.MagentaGreen };
+                    this.DefaultPalette[14] = new PalColourBBC { Colour = PalColourBBC.BBCColour.CyanRed };
+                    this.DefaultPalette[15] = new PalColourBBC { Colour = PalColourBBC.BBCColour.WhiteBlack };
                     break;
             }
         }

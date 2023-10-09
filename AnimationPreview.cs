@@ -186,7 +186,7 @@ namespace BeebSpriter
                     ColorPalette palette = bmp.Palette;
                     for (int n = 0; n < sprite.Palette.Length; n++)
                     {
-                        palette.Entries[n] = BeebPalette.GetWindowsColour(sprite.Palette[n]);
+                        palette.Entries[n] = sprite.Palette[n].WindowsColour;
                     }
                     palette.Entries[255] = SpriteSheetForm.Instance.GetBackgroundColour();
                     bmp.Palette = palette;

@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button_colour0 = new System.Windows.Forms.Panel();
-            button_colour1 = new System.Windows.Forms.Panel();
-            button_colour3 = new System.Windows.Forms.Panel();
-            button_colour2 = new System.Windows.Forms.Panel();
-            button_colour7 = new System.Windows.Forms.Panel();
-            button_colour5 = new System.Windows.Forms.Panel();
-            button_colour6 = new System.Windows.Forms.Panel();
-            button_colour4 = new System.Windows.Forms.Panel();
-            button_colour15 = new System.Windows.Forms.Panel();
-            button_colour11 = new System.Windows.Forms.Panel();
-            button_colour13 = new System.Windows.Forms.Panel();
-            button_colour9 = new System.Windows.Forms.Panel();
-            button_colour14 = new System.Windows.Forms.Panel();
-            button_colour10 = new System.Windows.Forms.Panel();
-            button_colour12 = new System.Windows.Forms.Panel();
-            button_colour8 = new System.Windows.Forms.Panel();
+            button_colour0 = new BeebSpriter.Controls.PalColourC();
+            button_colour1 = new BeebSpriter.Controls.PalColourC();
+            button_colour3 = new BeebSpriter.Controls.PalColourC();
+            button_colour2 = new BeebSpriter.Controls.PalColourC();
+            button_colour7 = new BeebSpriter.Controls.PalColourC();
+            button_colour5 = new BeebSpriter.Controls.PalColourC();
+            button_colour6 = new BeebSpriter.Controls.PalColourC();
+            button_colour4 = new BeebSpriter.Controls.PalColourC();
+            button_colour15 = new BeebSpriter.Controls.PalColourC();
+            button_colour11 = new BeebSpriter.Controls.PalColourC();
+            button_colour13 = new BeebSpriter.Controls.PalColourC();
+            button_colour9 = new BeebSpriter.Controls.PalColourC();
+            button_colour14 = new BeebSpriter.Controls.PalColourC();
+            button_colour10 = new BeebSpriter.Controls.PalColourC();
+            button_colour12 = new BeebSpriter.Controls.PalColourC();
+            button_colour8 = new BeebSpriter.Controls.PalColourC();
             cancelButton = new System.Windows.Forms.Button();
             okButton = new System.Windows.Forms.Button();
             SuspendLayout();
@@ -252,22 +252,22 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel button_colour0;
-        private System.Windows.Forms.Panel button_colour1;
-        private System.Windows.Forms.Panel button_colour3;
-        private System.Windows.Forms.Panel button_colour2;
-        private System.Windows.Forms.Panel button_colour7;
-        private System.Windows.Forms.Panel button_colour5;
-        private System.Windows.Forms.Panel button_colour6;
-        private System.Windows.Forms.Panel button_colour4;
-        private System.Windows.Forms.Panel button_colour15;
-        private System.Windows.Forms.Panel button_colour11;
-        private System.Windows.Forms.Panel button_colour13;
-        private System.Windows.Forms.Panel button_colour9;
-        private System.Windows.Forms.Panel button_colour14;
-        private System.Windows.Forms.Panel button_colour10;
-        private System.Windows.Forms.Panel button_colour12;
-        private System.Windows.Forms.Panel button_colour8;
+        private BeebSpriter.Controls.PalColourC button_colour0;
+        private BeebSpriter.Controls.PalColourC button_colour1;
+        private BeebSpriter.Controls.PalColourC button_colour3;
+        private BeebSpriter.Controls.PalColourC button_colour2;
+        private BeebSpriter.Controls.PalColourC button_colour7;
+        private BeebSpriter.Controls.PalColourC button_colour5;
+        private BeebSpriter.Controls.PalColourC button_colour6;
+        private BeebSpriter.Controls.PalColourC button_colour4;
+        private BeebSpriter.Controls.PalColourC button_colour15;
+        private BeebSpriter.Controls.PalColourC button_colour11;
+        private BeebSpriter.Controls.PalColourC button_colour13;
+        private BeebSpriter.Controls.PalColourC button_colour9;
+        private BeebSpriter.Controls.PalColourC button_colour14;
+        private BeebSpriter.Controls.PalColourC button_colour10;
+        private BeebSpriter.Controls.PalColourC button_colour12;
+        private BeebSpriter.Controls.PalColourC button_colour8;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button okButton;
     }

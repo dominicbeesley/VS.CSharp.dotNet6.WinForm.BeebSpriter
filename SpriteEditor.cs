@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BeebSpriter.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -130,7 +131,7 @@ namespace BeebSpriter
         /// <summary>
         ///  Array of Panels, one for each colour index, so I can refer to a Panel by its index
         /// </summary>
-        private Panel[] colourPanels;
+        private PalColourC[] colourPanels;
 
         struct Snapshot
         {
@@ -182,7 +183,7 @@ namespace BeebSpriter
             }
 
             // Make an array to look up colour panels by index
-            colourPanels = new Panel[16]
+            colourPanels = new PalColourC[16]
             {
                 button_colour0,
                 button_colour1,
@@ -233,7 +234,7 @@ namespace BeebSpriter
             // Set palettes
             for (int i = 0; i < spriteSheet.NumColours; i++)
             {
-                colourPanels[i].BackColor = BeebPalette.GetWindowsColour(sprite.Palette[i]);
+                colourPanels[i].PalColour = sprite.Palette[i];
             }
 
             currentColour.Invalidate();
@@ -510,7 +511,7 @@ namespace BeebSpriter
             SolidBrush[] brushes = new SolidBrush[sprite.Palette.Length];
             for (int i = 0; i < sprite.Palette.Length; i++)
             {
-                brushes[i] = new SolidBrush(BeebPalette.GetWindowsColour(sprite.Palette[i]));
+                brushes[i] = new SolidBrush(sprite.Palette[i].WindowsColour);
             }
             SolidBrush transparentBrush = new SolidBrush(Color.Gray);
 
@@ -746,20 +747,18 @@ namespace BeebSpriter
         /// </summary>
         private void ChangePalette(int index, MouseButtons button)
         {
-            switch (button)
+            using (var f = new PALPicker())
             {
-                case MouseButtons.Left:
-
-                    sprite.Palette[index] = BeebPalette.GetNextColour(sprite.Palette[index]);
-                    break;
-
-                case MouseButtons.Right:
-
-                    sprite.Palette[index] = BeebPalette.GetPreviousColour(sprite.Palette[index]);
-                    break;
+                f.PalColour = sprite.Palette[index];
+                if (f.ShowDialog() == DialogResult.OK)
+                {
+                    sprite.Palette[index] = f.PalColour;
+                }
             }
 
-            colourPanels[index].BackColor = BeebPalette.GetWindowsColour(sprite.Palette[index]);
+
+
+            colourPanels[index].PalColour = sprite.Palette[index];
             currentColour.Invalidate();
             editorPanel.Invalidate();
             spritePanel.Panel.Invalidate();
@@ -859,8 +858,8 @@ namespace BeebSpriter
             Point botLeft = new Point(0, panel.ClientSize.Width);
             Point botRight = new Point(panel.ClientSize.Width, panel.ClientSize.Width);
 
-            Color draw = (drawColour == 255) ? Color.Gray : BeebPalette.GetWindowsColour(sprite.Palette[drawColour]);
-            Color erase = (eraseColour == 255) ? Color.Gray : BeebPalette.GetWindowsColour(sprite.Palette[eraseColour]);
+            Color draw = (drawColour == 255) ? Color.Gray : sprite.Palette[drawColour].WindowsColour;
+            Color erase = (eraseColour == 255) ? Color.Gray : sprite.Palette[eraseColour].WindowsColour;
 
             SolidBrush drawBrush = new SolidBrush(draw);
             SolidBrush eraseBrush = new SolidBrush(erase);

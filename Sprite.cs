@@ -12,7 +12,7 @@ namespace BeebSpriter
         private int width;
         private int height;
         private byte[] bitmap;
-        private BeebPalette.Colour[] palette;
+        private PalColourBase[] palette;
         private SpritePanel spritePanel;
 
         [XmlAttribute]
@@ -42,7 +42,11 @@ namespace BeebSpriter
             set { this.bitmap = value; }
         }
 
-        public BeebPalette.Colour[] Palette
+        [XmlArrayItem(),
+         XmlArrayItem(typeof(PalColourBBC), ElementName="Colour"),
+         XmlArrayItem(typeof(PALColourNULA), ElementName = "ColourNULA"),
+         ]
+        public PalColourBase[] Palette
         {
             get { return this.palette; }
             set { this.palette = value; }
@@ -62,13 +66,13 @@ namespace BeebSpriter
         {
         }
 
-        public Sprite(string name, int width, int height, BeebPalette.Colour[] palette)
+        public Sprite(string name, int width, int height, PalColourBase[] palette)
         {
             this.Name = name;
             this.Width = width;
             this.Height = height;
             this.Bitmap = new byte[this.Width * this.Height];
-            this.Palette = (BeebPalette.Colour[])palette.Clone();
+            this.Palette = (PalColourBase[])palette.Clone();
         }
 
         public Sprite(string name, Sprite toCopy)
@@ -77,7 +81,7 @@ namespace BeebSpriter
             this.Width = toCopy.Width;
             this.Height = toCopy.Height;
             this.Bitmap = (byte[])toCopy.Bitmap.Clone();
-            this.Palette = (BeebPalette.Colour[])toCopy.Palette.Clone();
+            this.Palette = (PalColourBase[])toCopy.Palette.Clone();
         }
 
         public void SetSpritePanel(SpritePanel spritePanel)
