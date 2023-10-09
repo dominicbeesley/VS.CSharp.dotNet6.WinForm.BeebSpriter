@@ -89,6 +89,7 @@ namespace BeebSpriter
                     if (f.ShowDialog() == DialogResult.OK)
                     {
                         defaultPalette[index] = f.PalColour;
+                        colourPanels[index].PalColour = f.PalColour;
                     }
                 }
             }
@@ -100,6 +101,11 @@ namespace BeebSpriter
         }
 
         private void DefaultPalette_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_colour1_Load(object sender, EventArgs e)
         {
 
         }

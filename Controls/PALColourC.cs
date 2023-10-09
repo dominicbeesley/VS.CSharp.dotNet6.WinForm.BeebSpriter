@@ -23,6 +23,14 @@ namespace BeebSpriter.Controls
             }
         }
 
+        bool _selected;
+
+        public bool Selected
+        {
+            get { return _selected; }
+            set { _selected = value; Invalidate(); }
+        }
+
         public PalColourC()
         {
             InitializeComponent();
@@ -37,6 +45,16 @@ namespace BeebSpriter.Controls
                 string t = PalColour == null ? "?" : "*";
                 e.Graphics.DrawString(t, this.Font, p, new PointF(0, 0));
             }
+
+            int bw = Selected ? 4 : 0;
+            Rectangle r = this.ClientRectangle;
+            r.Inflate(-bw, -bw);
+            ControlPaint.DrawBorder(e.Graphics, r,
+                Color.LightBlue, bw, ButtonBorderStyle.Solid,
+                Color.LightBlue, bw, ButtonBorderStyle.Solid,
+                Color.LightBlue, bw, ButtonBorderStyle.Solid,
+                Color.LightBlue, bw, ButtonBorderStyle.Solid
+                );
 
         }
     }

@@ -142,7 +142,7 @@ namespace BeebSpriter
             set { this.backgroundColour = value; }
         }
 
-        [XmlArrayItem(),
+        [XmlArray(),
          XmlArrayItem(typeof(PalColourBBC), ElementName = "Colour"),
          XmlArrayItem(typeof(PALColourNULA), ElementName = "ColourNULA"),
         ]

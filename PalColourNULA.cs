@@ -17,20 +17,20 @@ namespace BeebSpriter
     public class PALColourNULA : PalColourBase, IXmlSerializable
     {
 
-        byte _red;
-        public byte Red { 
+        int _red;
+        public int Red { 
             get => _red; 
             init => _red = lim(value); 
         }
 
-        byte _green;
-        public byte Green { 
+        int _green;
+        public int Green { 
             get => _green; 
             init => _green = lim(value); 
         }
 
-        byte _blue;
-        public byte Blue {
+        int _blue;
+        public int Blue {
             get => _blue;
             init => _blue = lim(value); 
         }
@@ -61,21 +61,19 @@ namespace BeebSpriter
 
         public void ReadXml(XmlReader reader)
         {
-            var s = reader.ReadContentAsString().Trim();
+            var s = reader.ReadElementContentAsString().Trim();
             var m = reCol.Match(s);
             if (m.Success)
             {
-                _red = byte.Parse(m.Captures[1].Value.Substring(0, 1), NumberStyles.HexNumber);
-                _green = byte.Parse(m.Captures[1].Value.Substring(1, 1), NumberStyles.HexNumber);
-                _blue = byte.Parse(m.Captures[1].Value.Substring(2, 1), NumberStyles.HexNumber);
+                _red = int.Parse(m.Groups[1].Value.Substring(0, 1), NumberStyles.HexNumber);
+                _green = int.Parse(m.Groups[1].Value.Substring(1, 1), NumberStyles.HexNumber);
+                _blue = int.Parse(m.Groups[1].Value.Substring(2, 1), NumberStyles.HexNumber);
             }
         }
 
         public void WriteXml(XmlWriter writer)
         {
-            writer.WriteStartElement("ColourNULA");
             writer.WriteString(this.ToString());
-            writer.WriteEndElement();
         }
 
 
@@ -84,12 +82,12 @@ namespace BeebSpriter
             return $"#{(Red & 0xF):X1}{(Green & 0xF):X1}{(Blue & 0xF):X1}";
         }
 
-        private static byte lim(byte v)
+        private static int lim(int v)
         {
-            return (byte)(v <= 0 ? 0 : v >= 15 ? 15 : v);
+            return v <= 0 ? 0 : v >= 15 ? 15 : v;
         }
 
-        private int exp(byte v)
+        private int exp(int v)
         {
             return v * 16 | (v & 1) * 15;
         }

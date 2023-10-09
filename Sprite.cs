@@ -42,10 +42,10 @@ namespace BeebSpriter
             set { this.bitmap = value; }
         }
 
-        [XmlArrayItem(),
-         XmlArrayItem(typeof(PalColourBBC), ElementName="Colour"),
-         XmlArrayItem(typeof(PALColourNULA), ElementName = "ColourNULA"),
-         ]
+        
+        [XmlArrayItem(typeof(PalColourBBC), ElementName = "Colour"),
+        XmlArrayItem(typeof(PALColourNULA), ElementName = "ColourNULA"),
+        ]
         public PalColourBase[] Palette
         {
             get { return this.palette; }

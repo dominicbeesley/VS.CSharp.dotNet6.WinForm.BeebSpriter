@@ -130,9 +130,7 @@ namespace BeebSpriter
 
         public void WriteXml(XmlWriter writer)
         {
-            writer.WriteStartElement("Colour");
             writer.WriteString(Colour.ToString());
-            writer.WriteEndElement();
         }
     }
 

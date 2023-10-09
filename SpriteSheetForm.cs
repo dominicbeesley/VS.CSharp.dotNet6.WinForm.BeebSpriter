@@ -1230,7 +1230,10 @@ namespace BeebSpriter
 
         private void editDefaultPaletteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new DefaultPalette().ShowDialog(this);
+            using (var f = new DefaultPalette())
+            {
+                f.ShowDialog(this);
+            }
         }
 
         private void SpriteSheetForm_FormClosing(object sender, FormClosingEventArgs e)
