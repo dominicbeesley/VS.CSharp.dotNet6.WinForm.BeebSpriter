@@ -89,22 +89,23 @@
             editorContainer = new System.Windows.Forms.Panel();
             editorPanel = new DoubleBufferedPanel();
             button_colourTransparent = new System.Windows.Forms.Panel();
-            button_colour0 = new BeebSpriter.Controls.PalColourC();
-            button_colour1 = new BeebSpriter.Controls.PalColourC();
-            button_colour3 = new BeebSpriter.Controls.PalColourC();
-            button_colour2 = new BeebSpriter.Controls.PalColourC();
-            button_colour7 = new BeebSpriter.Controls.PalColourC();
-            button_colour6 = new BeebSpriter.Controls.PalColourC();
-            button_colour5 = new BeebSpriter.Controls.PalColourC();
-            button_colour4 = new BeebSpriter.Controls.PalColourC();
-            button_colour15 = new BeebSpriter.Controls.PalColourC();
-            button_colour11 = new BeebSpriter.Controls.PalColourC();
-            button_colour14 = new BeebSpriter.Controls.PalColourC();
-            button_colour10 = new BeebSpriter.Controls.PalColourC();
-            button_colour13 = new BeebSpriter.Controls.PalColourC();
-            button_colour9 = new BeebSpriter.Controls.PalColourC();
-            button_colour12 = new BeebSpriter.Controls.PalColourC();
-            button_colour8 = new BeebSpriter.Controls.PalColourC();
+            button_colour0 = new Controls.PalColourC();
+            button_colour1 = new Controls.PalColourC();
+            button_colour3 = new Controls.PalColourC();
+            button_colour2 = new Controls.PalColourC();
+            button_colour7 = new Controls.PalColourC();
+            button_colour6 = new Controls.PalColourC();
+            button_colour5 = new Controls.PalColourC();
+            button_colour4 = new Controls.PalColourC();
+            button_colour15 = new Controls.PalColourC();
+            button_colour11 = new Controls.PalColourC();
+            button_colour14 = new Controls.PalColourC();
+            button_colour10 = new Controls.PalColourC();
+            button_colour13 = new Controls.PalColourC();
+            button_colour9 = new Controls.PalColourC();
+            button_colour12 = new Controls.PalColourC();
+            button_colour8 = new Controls.PalColourC();
+            defaultPaletteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             editorContainer.SuspendLayout();
@@ -131,41 +132,41 @@
             // 
             selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
             selectAllToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A;
-            selectAllToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            selectAllToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             selectAllToolStripMenuItem.Text = "Select all";
             // 
             // clearSelectionToolStripMenuItem
             // 
             clearSelectionToolStripMenuItem.Name = "clearSelectionToolStripMenuItem";
-            clearSelectionToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            clearSelectionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             clearSelectionToolStripMenuItem.Text = "Clear selection";
             // 
             // cutToolStripMenuItem
             // 
             cutToolStripMenuItem.Name = "cutToolStripMenuItem";
             cutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X;
-            cutToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            cutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             cutToolStripMenuItem.Text = "Cut";
             // 
             // copyToolStripMenuItem
             // 
             copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             copyToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C;
-            copyToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            copyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             copyToolStripMenuItem.Text = "Copy";
             // 
             // pasteToolStripMenuItem
             // 
             pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
             pasteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V;
-            pasteToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            pasteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             pasteToolStripMenuItem.Text = "Paste";
             // 
             // selectionToolStripMenuItem
             // 
             selectionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { flipLeftrightToolStripMenuItem, flipUpdownToolStripMenuItem });
             selectionToolStripMenuItem.Name = "selectionToolStripMenuItem";
-            selectionToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            selectionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             selectionToolStripMenuItem.Text = "Selection";
             // 
             // flipLeftrightToolStripMenuItem
@@ -184,7 +185,7 @@
             // 
             transformToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { tsmiRotateClockwise, tsmiRotateAntiClockwise, toolStripMenuItem6, ShiftLeftToolStripMenuItem, ShiftRightToolStripMenuItem, ShiftUpToolStripMenuItem, ShiftDownToolStripMenuItem });
             transformToolStripMenuItem.Name = "transformToolStripMenuItem";
-            transformToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            transformToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             transformToolStripMenuItem.Text = "Transform";
             // 
             // tsmiRotateClockwise
@@ -246,9 +247,9 @@
             // 
             // colourToolStripMenuItem
             // 
-            colourToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { ReplaceColourToolStripMenuItem, NegativeToolStripMenuItem });
+            colourToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { ReplaceColourToolStripMenuItem, NegativeToolStripMenuItem, defaultPaletteToolStripMenuItem });
             colourToolStripMenuItem.Name = "colourToolStripMenuItem";
-            colourToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            colourToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             colourToolStripMenuItem.Text = "Colour";
             // 
             // ReplaceColourToolStripMenuItem
@@ -271,20 +272,20 @@
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new System.Drawing.Size(159, 6);
+            toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
             // 
             // undoToolStripMenuItem
             // 
             undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             undoToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z;
-            undoToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            undoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             undoToolStripMenuItem.Text = "Undo";
             // 
             // redoToolStripMenuItem
             // 
             redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             redoToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y;
-            redoToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            redoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             redoToolStripMenuItem.Text = "Redo";
             // 
             // viewToolStripMenuItem
@@ -595,9 +596,11 @@
             // button_colour0
             // 
             button_colour0.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            button_colour0.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             button_colour0.Location = new System.Drawing.Point(14, 163);
             button_colour0.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button_colour0.Name = "button_colour0";
+            button_colour0.PalColour = null;
             button_colour0.Size = new System.Drawing.Size(26, 27);
             button_colour0.TabIndex = 5;
             button_colour0.MouseClick += button_colour0_MouseClick;
@@ -606,9 +609,11 @@
             // button_colour1
             // 
             button_colour1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            button_colour1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             button_colour1.Location = new System.Drawing.Point(48, 163);
             button_colour1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button_colour1.Name = "button_colour1";
+            button_colour1.PalColour = null;
             button_colour1.Size = new System.Drawing.Size(26, 27);
             button_colour1.TabIndex = 6;
             button_colour1.MouseClick += button_colour1_MouseClick;
@@ -617,9 +622,11 @@
             // button_colour3
             // 
             button_colour3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            button_colour3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             button_colour3.Location = new System.Drawing.Point(48, 197);
             button_colour3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button_colour3.Name = "button_colour3";
+            button_colour3.PalColour = null;
             button_colour3.Size = new System.Drawing.Size(26, 27);
             button_colour3.TabIndex = 8;
             button_colour3.MouseClick += button_colour3_MouseClick;
@@ -628,9 +635,11 @@
             // button_colour2
             // 
             button_colour2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            button_colour2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             button_colour2.Location = new System.Drawing.Point(14, 197);
             button_colour2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button_colour2.Name = "button_colour2";
+            button_colour2.PalColour = null;
             button_colour2.Size = new System.Drawing.Size(26, 27);
             button_colour2.TabIndex = 7;
             button_colour2.MouseClick += button_colour2_MouseClick;
@@ -639,9 +648,11 @@
             // button_colour7
             // 
             button_colour7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            button_colour7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             button_colour7.Location = new System.Drawing.Point(48, 267);
             button_colour7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button_colour7.Name = "button_colour7";
+            button_colour7.PalColour = null;
             button_colour7.Size = new System.Drawing.Size(26, 27);
             button_colour7.TabIndex = 12;
             button_colour7.MouseClick += button_colour7_MouseClick;
@@ -650,9 +661,11 @@
             // button_colour6
             // 
             button_colour6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            button_colour6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             button_colour6.Location = new System.Drawing.Point(14, 267);
             button_colour6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button_colour6.Name = "button_colour6";
+            button_colour6.PalColour = null;
             button_colour6.Size = new System.Drawing.Size(26, 27);
             button_colour6.TabIndex = 11;
             button_colour6.MouseClick += button_colour6_MouseClick;
@@ -661,9 +674,11 @@
             // button_colour5
             // 
             button_colour5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            button_colour5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             button_colour5.Location = new System.Drawing.Point(48, 232);
             button_colour5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button_colour5.Name = "button_colour5";
+            button_colour5.PalColour = null;
             button_colour5.Size = new System.Drawing.Size(26, 27);
             button_colour5.TabIndex = 10;
             button_colour5.MouseClick += button_colour5_MouseClick;
@@ -672,9 +687,11 @@
             // button_colour4
             // 
             button_colour4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            button_colour4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             button_colour4.Location = new System.Drawing.Point(14, 232);
             button_colour4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button_colour4.Name = "button_colour4";
+            button_colour4.PalColour = null;
             button_colour4.Size = new System.Drawing.Size(26, 27);
             button_colour4.TabIndex = 9;
             button_colour4.MouseClick += button_colour4_MouseClick;
@@ -683,9 +700,11 @@
             // button_colour15
             // 
             button_colour15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            button_colour15.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             button_colour15.Location = new System.Drawing.Point(48, 405);
             button_colour15.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button_colour15.Name = "button_colour15";
+            button_colour15.PalColour = null;
             button_colour15.Size = new System.Drawing.Size(26, 27);
             button_colour15.TabIndex = 20;
             button_colour15.MouseClick += button_colour15_MouseClick;
@@ -694,9 +713,11 @@
             // button_colour11
             // 
             button_colour11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            button_colour11.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             button_colour11.Location = new System.Drawing.Point(48, 336);
             button_colour11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button_colour11.Name = "button_colour11";
+            button_colour11.PalColour = null;
             button_colour11.Size = new System.Drawing.Size(26, 27);
             button_colour11.TabIndex = 16;
             button_colour11.MouseClick += button_colour11_MouseClick;
@@ -705,9 +726,11 @@
             // button_colour14
             // 
             button_colour14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            button_colour14.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             button_colour14.Location = new System.Drawing.Point(14, 405);
             button_colour14.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button_colour14.Name = "button_colour14";
+            button_colour14.PalColour = null;
             button_colour14.Size = new System.Drawing.Size(26, 27);
             button_colour14.TabIndex = 19;
             button_colour14.MouseClick += button_colour14_MouseClick;
@@ -716,9 +739,11 @@
             // button_colour10
             // 
             button_colour10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            button_colour10.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             button_colour10.Location = new System.Drawing.Point(14, 336);
             button_colour10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button_colour10.Name = "button_colour10";
+            button_colour10.PalColour = null;
             button_colour10.Size = new System.Drawing.Size(26, 27);
             button_colour10.TabIndex = 15;
             button_colour10.MouseClick += button_colour10_MouseClick;
@@ -727,9 +752,11 @@
             // button_colour13
             // 
             button_colour13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            button_colour13.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             button_colour13.Location = new System.Drawing.Point(48, 370);
             button_colour13.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button_colour13.Name = "button_colour13";
+            button_colour13.PalColour = null;
             button_colour13.Size = new System.Drawing.Size(26, 27);
             button_colour13.TabIndex = 18;
             button_colour13.MouseClick += button_colour13_MouseClick;
@@ -738,9 +765,11 @@
             // button_colour9
             // 
             button_colour9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            button_colour9.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             button_colour9.Location = new System.Drawing.Point(48, 301);
             button_colour9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button_colour9.Name = "button_colour9";
+            button_colour9.PalColour = null;
             button_colour9.Size = new System.Drawing.Size(26, 27);
             button_colour9.TabIndex = 14;
             button_colour9.MouseClick += button_colour9_MouseClick;
@@ -749,9 +778,11 @@
             // button_colour12
             // 
             button_colour12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            button_colour12.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             button_colour12.Location = new System.Drawing.Point(14, 370);
             button_colour12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button_colour12.Name = "button_colour12";
+            button_colour12.PalColour = null;
             button_colour12.Size = new System.Drawing.Size(26, 27);
             button_colour12.TabIndex = 17;
             button_colour12.MouseClick += button_colour12_MouseClick;
@@ -760,13 +791,22 @@
             // button_colour8
             // 
             button_colour8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            button_colour8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             button_colour8.Location = new System.Drawing.Point(14, 301);
             button_colour8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             button_colour8.Name = "button_colour8";
+            button_colour8.PalColour = null;
             button_colour8.Size = new System.Drawing.Size(26, 27);
             button_colour8.TabIndex = 13;
             button_colour8.MouseClick += button_colour8_MouseClick;
             button_colour8.MouseDoubleClick += button_colour8_MouseClick;
+            // 
+            // defaultPaletteToolStripMenuItem
+            // 
+            defaultPaletteToolStripMenuItem.Name = "defaultPaletteToolStripMenuItem";
+            defaultPaletteToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            defaultPaletteToolStripMenuItem.Text = "Default Palette";
+            defaultPaletteToolStripMenuItem.Click += defaultPaletteToolStripMenuItem_Click;
             // 
             // SpriteEditor
             // 
@@ -886,5 +926,6 @@
         private System.Windows.Forms.ToolStripMenuItem colourToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ReplaceColourToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem NegativeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem defaultPaletteToolStripMenuItem;
     }
 }

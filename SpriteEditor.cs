@@ -1985,5 +1985,11 @@ namespace BeebSpriter
             editorPanel.Invalidate();
             spritePanel.Panel.Invalidate();
         }
+
+        private void defaultPaletteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SpriteSheetForm ssf = SpriteSheetForm.Instance;
+            ssf.SpriteSheet.DefaultPalette.CopyTo(this.sprite.Palette, 0);
+        }
     }
 }

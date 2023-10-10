@@ -155,9 +155,12 @@ namespace BeebSpriter
             {
                 editorForm = new SpriteEditor(this);
                 editorForm.Show(SpriteSheetForm.Instance);
+                editorForm.FormClosed += (o, e) => editorForm = null;
             }
             else
             {
+                if (editorForm.Visible == false)
+                    editorForm.Show();
                 editorForm.Focus();
             }
         }
